@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Sorting Visualizer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Advanced Sorting Algorithm Visualizer</h1>
+</header>
+
+<div class="main-wrapper">
+  <div class="controls">
+    <div class="label-with-value">
+      <label for="algorithm">Algorithm:</label>
+      <select id="algorithm">
+      <option value="bubble">Bubble Sort</option>
+      <option value="selection">Selection Sort</option>
+      <option value="insertion">Insertion Sort</option>
+      <option value="merge">Merge Sort</option>
+      <option value="quick">Quick Sort</option>
+    </select>
+    </div>
+
+    <div class="label-with-value">
+      <label for="size">Array Size:</label>
+      <span id="size-value" class="slider-value">20</span>
+    </div>
+    <input type="range" id="size" min="5" max="50" value="20">
+
+    <div class="label-with-value">
+      <label for="speed">Speed:</label>
+      <span id="speed-level" class="slider-value">5</span>
+    </div>
+    <input type="range" id="speed" min="10" max="300" value="100">
+
+    <div class="main-buttons">
+      <button class="btn generate-btn" onclick="generateArray()">Generate Array</button>
+      <button class="btn start-btn" onclick="startSort()">Start Sorting</button>
+      <button class="btn auto-btn" id="auto-demo-btn">Auto Demo</button>
+      <button class="btn stop-btn" id="stop-btn">Stop</button>
+    </div>
+    <label style="display:flex;align-items:center;gap:6px;">
+      <input type="checkbox" id="meme-toggle" checked>
+      <span style="font-size:13px;color:#00ffff;">Meme during swaps</span>
+    </label>
+  </div>
+
+  <div class="custom-array">
+    <label for="custom">Custom Array (comma separated):</label>
+    <input type="text" id="custom" placeholder="e.g., 5,3,8,1,2">
+  <button class="btn custom-generate" onclick="generateCustomArray()">Generate Custom Array</button>
+  </div>
+
+  <div class="visual-row">
+    <div id="meme-container">
+      <video id="meme-video" muted loop preload="auto">
+        <source src="swap.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div id="bars-container"></div>
+  </div>
+
+  <div id="stats-panel">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-value"><span id="comparisons">0</span></div>
+        <div class="stat-label">Comparisons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value"><span id="swaps">0</span></div>
+        <div class="stat-label">Swaps</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value"><span id="accesses">0</span></div>
+        <div class="stat-label">Array Accesses</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="complexity-panel">
+    <p id="complexity">Time: - | Space: -</p>
+  </div>
+
+  <div id="legend">
+    <div class="legend-grid">
+      <div class="legend-item"><span class="legend-box unsorted"></span><div class="legend-desc">Unsorted</div></div>
+      <div class="legend-item"><span class="legend-box comparing"></span><div class="legend-desc">Comparing</div></div>
+      <div class="legend-item"><span class="legend-box pivot"></span><div class="legend-desc">Pivot</div></div>
+      <div class="legend-item"><span class="legend-box sorted"></span><div class="legend-desc">Sorted</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="algorithm-logic">
+  <h3>Algorithm Logic</h3>
+  <pre id="logic-content"></pre>
+</div>
+
+<footer>Made by Joydeep Ghosh | B.Tech CSE | DSA Assignment</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
